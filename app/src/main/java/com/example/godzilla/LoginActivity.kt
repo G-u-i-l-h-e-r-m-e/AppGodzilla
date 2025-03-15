@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE)
         val token = sharedPreferences.getString("jwt_token", null)
         if (token != null) {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
 
@@ -66,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
             .create()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("<http://10.135.111.48/>")
+            .baseUrl("<http://10.135.111.28/>")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
@@ -84,7 +84,7 @@ class LoginActivity : AppCompatActivity() {
                     val editor = sharedPreferences.edit()
                     editor.putString("jwt_token", token)
                     editor.apply()
-                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {

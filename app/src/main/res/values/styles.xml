@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="botaoTrasparente" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Outros atributos do tema -->
+        <item name="colorButtonNormal">@android:color/transparent</item>
+
+    </style>
+</resources>
+

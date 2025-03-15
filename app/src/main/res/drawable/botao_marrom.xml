@@ -11,7 +11,7 @@
         android:bottomRightRadius="16dp"
         /> <!-- Raio das bordas arredondadas -->
 
-    <solid android:color="#B316401C"/> <!-- Cor de fundo -->
+    <solid android:color="#A68F1F"/> <!-- Cor de fundo -->
 
 
     <padding android:left="10dp" android:top="10dp" android:right="10dp" android:bottom="10dp"/>
