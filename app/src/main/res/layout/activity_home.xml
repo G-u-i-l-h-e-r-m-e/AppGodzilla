@@ -12,11 +12,9 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="93dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="19dp"
-        app:layout_constraintBottom_toTopOf="@+id/txtVSaudacao"
+        android:layout_height="49dp"
+        android:layout_marginStart="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtVSaudacao"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_verde_claro" />
@@ -25,118 +23,200 @@
         android:id="@+id/txtVSaudacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginTop="100dp"
         android:text="OLÁ, BEM VINDO EXEMPLO!"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="106dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/botao_marrom"
-        android:text="Coletas"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtVSaudacao" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="106dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="392dp"
-        android:background="@drawable/botao_marrom"
-        android:text="Financeiro"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="106dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/botao_marrom"
-        android:text="Produtos"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtVSaudacao" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="106dp"
-        android:layout_height="67dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="222dp"
-        android:background="@drawable/botao_marrom"
-        android:text="Histórico"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/loginButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="106dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="31dp"
-        android:background="@drawable/botao_marrom"
-        android:text="Clientes"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="106dp"
-        android:layout_height="67dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="394dp"
-        android:background="@drawable/botao_marrom"
-        android:text="Relatórios"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="148dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="107dp"
+        android:layout_width="154dp"
+        android:layout_height="44dp"
         android:background="@drawable/botao_login"
         android:text="Acessar o site"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.957" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="343dp"
+        android:layout_height="189dp"
+        android:layout_marginTop="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="106dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/botao_marrom"
+            android:text="Coletas"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/button4"
+            app:layout_constraintEnd_toStartOf="@+id/button2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="106dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/botao_marrom"
+            android:text="Produtos"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/button5"
+            app:layout_constraintEnd_toStartOf="@+id/button3"
+            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="106dp"
+            android:layout_height="69dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/botao_marrom"
+            android:text="Relatórios"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button5"
+            app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="106dp"
+            android:layout_height="69dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/botao_marrom"
+            android:text="Histórico"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button6"
+            app:layout_constraintStart_toEndOf="@+id/button4"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="106dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/botao_marrom"
+            android:text="Financeiro"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="106dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/botao_marrom"
+            android:text="Clientes"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/button6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="372dp"
+        android:layout_height="477dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/back_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="373dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="@+id/loginButton"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.146"
+        app:srcCompat="@drawable/home_image_default" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="324dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="295dp"
+        android:text="A GODZILLA vem se destacando no mercado pela experiência e projetos que potencializam os clientes."
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="324dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="10dp"
+        android:text="Somos a GODZILLA COLETA DE ÓLEO, empresa no segmento da reciclagem de óleo vegetal, com mais de 10 anos de experiência e parceria com seus fornecedores e clientes."
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.428" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="324dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="352dp"
+        android:text="Hoje com nossa estrutura e parcerias estratégicas, conseguimos atender grandes empresas deste setor. "
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061"
+        app:srcCompat="@drawable/logout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

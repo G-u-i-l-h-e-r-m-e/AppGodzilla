@@ -48,10 +48,11 @@ class LoginActivity : AppCompatActivity() {
         if (token != null) {
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
-        }
+        }else {
 
-        loginButton.setOnClickListener {
-            blockLogin()
+            loginButton.setOnClickListener {
+                blockLogin()
+            }
         }
     }
 
@@ -66,9 +67,10 @@ class LoginActivity : AppCompatActivity() {
             .create()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("<http://10.135.111.28/>")
+            .baseUrl("http://10.135.111.28/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
+
 
         val apiService = retrofit.create(ApiService::class.java)
 
@@ -88,7 +90,8 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this@LoginActivity, "Usuário ou senha inválidos", Toast.LENGTH_LONG).show()
+                    // Exibe o erro correto caso a resposta do servidor não seja bem-sucedida
+                    Toast.makeText(this@LoginActivity, "Erro: ${response.message()}", Toast.LENGTH_LONG).show()
                 }
             }
 
