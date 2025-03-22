@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B316401C"
+    tools:context=".ColetasActivity">
+
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="338dp"
+        android:layout_height="56dp"
+        android:background="@drawable/botao_branco"
+        android:text="Registrar nova coleta"
+        android:textColor="#16401C"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="203dp" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="338dp"
+        android:layout_height="56dp"
+        android:background="@drawable/botao_branco"
+        android:text="Histórico de coletas"
+        android:textColor="#16401C"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="277dp" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="338dp"
+        android:layout_height="56dp"
+        android:background="@drawable/botao_branco"
+        android:text="Gerar certificado de coleta"
+        android:textColor="#16401C"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="351dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnColetas"
             android:layout_width="106dp"
             android:layout_height="69dp"
             android:layout_marginStart="30dp"

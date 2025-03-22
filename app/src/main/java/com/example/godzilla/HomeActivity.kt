@@ -1,6 +1,8 @@
 package com.example.godzilla
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +24,14 @@ class HomeActivity : AppCompatActivity() {
 //        val saudacao = findViewById<TextView>(R.id.txtVSaudacao)
 //
 //        saudacao.text = "OLÁ, BEM VINDO $nomeSaudacao!"
+
+        val btnColetas =  findViewById<Button>(R.id.btnColetas)
+
+        btnColetas.setOnClickListener{
+            val intent = Intent(this@HomeActivity, ColetasActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
     }
 }
