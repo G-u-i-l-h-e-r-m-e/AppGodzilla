@@ -1,6 +1,8 @@
 package com.example.godzilla
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +18,14 @@ class ColetasActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val btnHistoricoColetas =  findViewById<Button>(R.id.historicoColetas)
+
+        btnHistoricoColetas.setOnClickListener{
+            val intent = Intent(this@ColetasActivity, HistoricoColetasActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
+
+
 }

@@ -46,7 +46,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.957" />
+        app:layout_constraintVertical_bias="0.947" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -60,16 +60,15 @@
         <Button
             android:id="@+id/btnColetas"
             android:layout_width="106dp"
-            android:layout_height="69dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="12dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="14dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/botao_marrom"
             android:text="Coletas"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/button4"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
+            app:layout_constraintBottom_toTopOf="@+id/button5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,73 +76,71 @@
             android:id="@+id/button2"
             android:layout_width="106dp"
             android:layout_height="69dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="24dp"
             android:background="@drawable/botao_marrom"
             android:text="Produtos"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/button5"
-            app:layout_constraintEnd_toStartOf="@+id/button3"
-            app:layout_constraintStart_toEndOf="@+id/button"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.991"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.133" />
 
         <Button
             android:id="@+id/button6"
             android:layout_width="106dp"
             android:layout_height="69dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="18dp"
+            android:layout_marginBottom="13dp"
             android:background="@drawable/botao_marrom"
             android:text="Relatórios"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button5"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+            app:layout_constraintHorizontal_bias="0.991"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="106dp"
-            android:layout_height="69dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="18dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="13dp"
             android:background="@drawable/botao_marrom"
             android:text="Histórico"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button6"
-            app:layout_constraintStart_toEndOf="@+id/button4"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnColetas" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="106dp"
-            android:layout_height="69dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="18dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="13dp"
             android:background="@drawable/botao_marrom"
             android:text="Financeiro"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
+            app:layout_constraintTop_toBottomOf="@+id/button3" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="106dp"
-            android:layout_height="69dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="30dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="14dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/botao_marrom"
             android:text="Clientes"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/button6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button2"
+            app:layout_constraintBottom_toTopOf="@+id/button4"
+            app:layout_constraintEnd_toEndOf="@+id/button2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -195,12 +192,12 @@
         app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.428" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="324dp"
-        android:layout_height="36dp"
+        android:layout_width="322dp"
+        android:layout_height="55dp"
         android:layout_marginTop="352dp"
         android:text="Hoje com nossa estrutura e parcerias estratégicas, conseguimos atender grandes empresas deste setor. "
         app:layout_constraintEnd_toEndOf="@+id/view2"

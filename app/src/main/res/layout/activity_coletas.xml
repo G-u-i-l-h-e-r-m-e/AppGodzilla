@@ -17,20 +17,12 @@
         android:text="Registrar nova coleta"
         android:textColor="#16401C"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/historicoColetas"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="203dp" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="338dp"
-        android:layout_height="56dp"
-        android:background="@drawable/botao_branco"
-        android:text="Histórico de coletas"
-        android:textColor="#16401C"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="277dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.915" />
 
     <Button
         android:id="@+id/button9"
@@ -40,6 +32,38 @@
         android:text="Gerar certificado de coleta"
         android:textColor="#16401C"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="351dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/historicoColetas"
+        app:layout_constraintVertical_bias="0.041" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.087"
+        app:srcCompat="@drawable/logo_verde_claro" />
+
+    <Button
+        android:id="@+id/historicoColetas"
+        android:layout_width="338dp"
+        android:layout_height="56dp"
+        android:background="@drawable/botao_branco"
+        android:text="Histórico de coletas"
+        android:textColor="#16401C"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.522" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
