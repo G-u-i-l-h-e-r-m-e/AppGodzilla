@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.godzilla.LoginActivity.ApiResponse
 import com.example.godzilla.LoginActivity.LoginData
+import com.example.godzilla.network.ApiService
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -71,7 +72,7 @@ class HistoricoColetasActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<Coleta>>, response: Response<List<Coleta>>) {
                 if (response.isSuccessful) {
                     val coletas = response.body() ?: emptyList()
-                    adapter = HistoricoColetaAdapter(coletas)
+                    adapter = HistoricoColetaAdapter(coletas, apiService)
                     recyclerView.adapter = adapter
                 } else {
                     Log.e("API Error", "Response not successful. Code: ${response.code()}")
@@ -89,12 +90,9 @@ class HistoricoColetasActivity : AppCompatActivity() {
         }
     }
 
-    interface ApiService {
-        @GET("/apis/routes/historicoColetas.php")
-        fun getHistoricoColetas(): Call<List<Coleta>>
-    }
 
     data class Coleta(
+        val id: Int,
         val nome_fantasia: String,
         val data_hora: String,
         val qtdOleoLitros: Double

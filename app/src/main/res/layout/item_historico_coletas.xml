@@ -8,7 +8,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
 
         <TextView
             android:id="@+id/nome_fantasia"
@@ -36,12 +38,23 @@
             android:textColor="#16401C"
             android:textAlignment="center"/>
 
-        <TextView
-            android:id="@+id/qitem4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Botões" />
+
+        <Button
+            android:id="@+id/btnEditar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/editar"
+            android:backgroundTint="#16401C"></Button>
+
+        <Button
+            android:id="@+id/btnExcluir"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#FF0202"
+            android:text="X"
+            android:textAlignment="center"
+            android:textColor="@color/white"></Button>
+
         
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

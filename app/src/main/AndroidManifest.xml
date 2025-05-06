@@ -16,11 +16,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".EditarHistoricoColetas"
+            android:exported="false" />
+        <activity
             android:name=".HistoricoColetasActivity"
             android:exported="false" />
         <activity
             android:name=".ColetasActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".HomeActivity"
             android:exported="true">
@@ -35,7 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
