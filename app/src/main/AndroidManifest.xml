@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".NovaColetaActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditarHistoricoColetas"
             android:exported="false" />
         <activity

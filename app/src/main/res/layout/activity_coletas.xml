@@ -10,7 +10,7 @@
 
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btnNovaColeta"
         android:layout_width="338dp"
         android:layout_height="56dp"
         android:background="@drawable/botao_branco"

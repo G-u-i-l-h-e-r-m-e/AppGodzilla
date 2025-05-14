@@ -20,6 +20,14 @@ class ColetasActivity : AppCompatActivity() {
         }
         val btnHistoricoColetas =  findViewById<Button>(R.id.historicoColetas)
 
+        val btnNovaColeta =  findViewById<Button>(R.id.btnNovaColeta)
+
+        btnNovaColeta.setOnClickListener{
+            val intent = Intent(this@ColetasActivity, NovaColetaActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         btnHistoricoColetas.setOnClickListener{
             val intent = Intent(this@ColetasActivity, HistoricoColetasActivity::class.java)
             startActivity(intent)
