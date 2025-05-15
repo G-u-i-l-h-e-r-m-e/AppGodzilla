@@ -9,13 +9,9 @@ interface ApiService {
     @GET("/apis/routes/historicoColetas.php")
     fun getHistoricoColetas(): Call<List<HistoricoColetasActivity.Coleta>>
 
-    @FormUrlEncoded
     @POST("/apis/routes/editarHistoricoColetas.php")
     fun editarColeta(
-        @Field("COLETA_ID") coletaId: Int,
-        @Field("NOME_FANTASIA") nomeFantasia: String,
-        @Field("DATA_HORA") dataHora: String,
-        @Field("QTD_OLEO_LITROS") qtdOleoLitros: Double
+        @Body coleta: ColetaRequest
     ): Call<Void>
 
     @FormUrlEncoded

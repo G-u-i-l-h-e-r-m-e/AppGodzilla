@@ -1,5 +1,6 @@
 package com.example.godzilla
 
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -11,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.godzilla.HistoricoColetasActivity.Coleta
 import com.example.godzilla.network.ApiService
+import com.example.godzilla.network.ColetaRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -45,6 +47,7 @@ class EditarHistoricoColetas : AppCompatActivity() {
 
         // Resgatar os dados passados pela Intent
         coletaId = intent.getIntExtra("ID", 0)
+        Log.d("DEBUG", "ID recebido na edição: $coletaId")
         clienteIdEditText.setText(intent.getStringExtra("nome_fantasia"))
         dataHoraEditText.setText(intent.getStringExtra("DATA_HORA"))
         qtdOleoLitrosEditText.setText(intent.getDoubleExtra("QTD_OLEO_LITROS", 0.0).toString())
@@ -58,34 +61,31 @@ class EditarHistoricoColetas : AppCompatActivity() {
         val apiService = retrofit.create(ApiService::class.java)
 
         salvarButton.setOnClickListener {
-            val coletaAtualizada = Coleta(
-                coletaId,
-                clienteIdEditText.text.toString(),
-                dataHoraEditText.text.toString(),
-                qtdOleoLitrosEditText.text.toString().toDouble()
-            )
-            apiService.editarColeta(
-                coletaAtualizada.id,
-                coletaAtualizada.nome_fantasia,
-                coletaAtualizada.data_hora,
-                coletaAtualizada.qtdOleoLitros
-            ).enqueue(object : Callback<Void> {
+            val coletaRequest = ColetaRequest(
+            id = coletaId,
+            data_hora = dataHoraEditText.text.toString(),
+            qtdOleoLitros = qtdOleoLitrosEditText.text.toString()
+        )
+
+            apiService.editarColeta(coletaRequest).enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
                         Toast.makeText(this@EditarHistoricoColetas, "Coleta atualizada com sucesso!", Toast.LENGTH_LONG).show()
+                        setResult(Activity.RESULT_OK)
                         finish()
                     } else {
                         val errorBody = response.errorBody()?.string()
                         Log.e("API_ERROR", "Código: ${response.code()} - Erro: $errorBody")
-                        Toast.makeText(this@EditarHistoricoColetas, "Erro na atualização: ${response.code()}", Toast.LENGTH_LONG).show()
-                    //Toast.makeText(this@EditarHistoricoColetas, "Erro na atualização", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@EditarHistoricoColetas, "Erro na atualização", Toast.LENGTH_LONG).show()
                     }
                 }
 
                 override fun onFailure(call: Call<Void>, t: Throwable) {
                     Toast.makeText(this@EditarHistoricoColetas, "Erro ao atualizar a coleta", Toast.LENGTH_LONG).show()
+                    Log.e("API_ERROR", "Falha: ${t.message}")
                 }
             })
+
         }
     }
 
