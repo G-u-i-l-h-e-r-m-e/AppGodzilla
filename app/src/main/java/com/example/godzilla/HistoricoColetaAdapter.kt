@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.godzilla.network.ApiService
 import retrofit2.Call
@@ -46,16 +47,36 @@ class HistoricoColetaAdapter(
         }
 
         viewHolder.btnExcluir.setOnClickListener { btnView ->
-            apiService.deletarColeta(coleta.id).enqueue(object : Callback<Void> {
-                override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    Toast.makeText(btnView.context, "Coleta deletada com sucesso!", Toast.LENGTH_SHORT).show()
-                }
+            val context = btnView.context
 
-                override fun onFailure(call: Call<Void>, t: Throwable) {
-                    Toast.makeText(btnView.context, "Erro ao deletar", Toast.LENGTH_SHORT).show()
+            AlertDialog.Builder(context)
+                .setTitle("Confirmar exclusão")
+                .setMessage("Tem certeza que deseja excluir esta coleta?")
+                .setPositiveButton("Sim") { _, _ ->
+                    apiService.deletarColeta(coleta.id).enqueue(object : Callback<Void> {
+                        override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                            if (response.isSuccessful) {
+                                Toast.makeText(context, "Coleta deletada com sucesso!", Toast.LENGTH_SHORT).show()
+
+                                val pos = viewHolder.adapterPosition
+                                if (pos != RecyclerView.NO_POSITION) {
+                                    dataSet.removeAt(pos)
+                                    notifyItemRemoved(pos)
+                                }
+                            } else {
+                                Toast.makeText(context, "Erro ao deletar coleta", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+
+                        override fun onFailure(call: Call<Void>, t: Throwable) {
+                            Toast.makeText(context, "Erro na conexão ao deletar", Toast.LENGTH_SHORT).show()
+                        }
+                    })
                 }
-            })
+                .setNegativeButton("Cancelar", null)
+                .show()
         }
+
     }
 
     override fun getItemCount() = dataSet.size
