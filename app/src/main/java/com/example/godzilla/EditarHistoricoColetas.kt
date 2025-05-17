@@ -10,7 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.godzilla.HistoricoColetasActivity.Coleta
+import com.example.godzilla.network.Coleta
 import com.example.godzilla.network.ApiService
 import com.example.godzilla.network.ColetaRequest
 import retrofit2.Call
@@ -54,7 +54,7 @@ class EditarHistoricoColetas : AppCompatActivity() {
 
         // Configuração do Retrofit
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.1.110/apis/routes/")
+            .baseUrl("http://10.135.111.23/apis/routes/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

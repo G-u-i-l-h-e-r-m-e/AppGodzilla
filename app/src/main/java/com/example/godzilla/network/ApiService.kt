@@ -7,7 +7,7 @@ import retrofit2.http.*
 interface ApiService {
 
     @GET("/apis/routes/historicoColetas.php")
-    fun getHistoricoColetas(): Call<List<HistoricoColetasActivity.Coleta>>
+    fun getHistoricoColetas(): Call<List<Coleta>>
 
     @POST("/apis/routes/editarHistoricoColetas.php")
     fun editarColeta(

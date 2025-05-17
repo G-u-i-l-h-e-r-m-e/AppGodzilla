@@ -22,6 +22,8 @@ class ColetasActivity : AppCompatActivity() {
 
         val btnNovaColeta =  findViewById<Button>(R.id.btnNovaColeta)
 
+        val btnGerarCertificadoColeta =  findViewById<Button>(R.id.btnGerarCertificadoColeta)
+
         btnNovaColeta.setOnClickListener{
             val intent = Intent(this@ColetasActivity, NovaColetaActivity::class.java)
             startActivity(intent)
@@ -30,6 +32,12 @@ class ColetasActivity : AppCompatActivity() {
 
         btnHistoricoColetas.setOnClickListener{
             val intent = Intent(this@ColetasActivity, HistoricoColetasActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnGerarCertificadoColeta.setOnClickListener{
+            val intent = Intent(this@ColetasActivity, CertificadoColetaActivity::class.java)
             startActivity(intent)
             finish()
         }

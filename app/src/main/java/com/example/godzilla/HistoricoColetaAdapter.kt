@@ -15,11 +15,12 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import com.example.godzilla.network.Coleta
 
 class HistoricoColetaAdapter(
-    private val dataSet: MutableList<HistoricoColetasActivity.Coleta>,
+    private val dataSet: MutableList<Coleta>,
     private val apiService: ApiService,
-    private val onEditarClick: (HistoricoColetasActivity.Coleta) -> Unit
+    private val onEditarClick: (Coleta) -> Unit
 ) : RecyclerView.Adapter<HistoricoColetaAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
