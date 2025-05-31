@@ -72,7 +72,7 @@ class HistoricoColetasActivity : AppCompatActivity() {
             .create()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.135.111.23/")
+            .baseUrl("http://10.135.111.26/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()

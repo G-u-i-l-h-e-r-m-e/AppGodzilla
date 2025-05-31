@@ -16,6 +16,7 @@ import retrofit2.Response
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import com.example.godzilla.network.Coleta
+import com.example.godzilla.network.ExcluirColetaRequest
 
 class HistoricoColetaAdapter(
     private val dataSet: MutableList<Coleta>,
@@ -54,28 +55,33 @@ class HistoricoColetaAdapter(
                 .setTitle("Confirmar exclusão")
                 .setMessage("Tem certeza que deseja excluir esta coleta?")
                 .setPositiveButton("Sim") { _, _ ->
-                    apiService.deletarColeta(coleta.id).enqueue(object : Callback<Void> {
+                    val request = ExcluirColetaRequest(coleta.id)
+
+                    apiService.deletarColeta(request).enqueue(object : Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
                             if (response.isSuccessful) {
                                 Toast.makeText(context, "Coleta deletada com sucesso!", Toast.LENGTH_SHORT).show()
 
-                                val pos = viewHolder.adapterPosition
+                                val pos = viewHolder.bindingAdapterPosition
                                 if (pos != RecyclerView.NO_POSITION) {
                                     dataSet.removeAt(pos)
                                     notifyItemRemoved(pos)
+                                    notifyItemRangeChanged(pos, dataSet.size)
                                 }
                             } else {
-                                Toast.makeText(context, "Erro ao deletar coleta", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, "Erro ao deletar coleta (Código: ${response.code()})", Toast.LENGTH_SHORT).show()
                             }
                         }
 
                         override fun onFailure(call: Call<Void>, t: Throwable) {
-                            Toast.makeText(context, "Erro na conexão ao deletar", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Erro na conexão ao deletar: ${t.message}", Toast.LENGTH_SHORT).show()
                         }
                     })
                 }
                 .setNegativeButton("Cancelar", null)
                 .show()
+
+
         }
 
     }

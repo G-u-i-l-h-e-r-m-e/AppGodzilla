@@ -14,10 +14,8 @@ interface ApiService {
         @Body coleta: ColetaRequest
     ): Call<Void>
 
-    @FormUrlEncoded
+    // Interface Retrofit
     @POST("/apis/routes/excluirHistoricoColetas.php")
-    fun deletarColeta(
-        @Field("ID") id: Int
-    ): Call<Void>
+    fun deletarColeta(@Body request: ExcluirColetaRequest): Call<Void>
 
 }

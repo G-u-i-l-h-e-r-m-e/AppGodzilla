@@ -54,7 +54,7 @@ class EditarHistoricoColetas : AppCompatActivity() {
 
         // Configuração do Retrofit
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.135.111.23/apis/routes/")
+            .baseUrl("http://10.135.111.26/apis/routes/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
