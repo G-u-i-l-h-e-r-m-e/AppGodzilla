@@ -66,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
             .create()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.135.111.26/")
+            .baseUrl("http://192.168.1.110/")
             //.baseUrl("http://localhost/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
@@ -82,12 +82,18 @@ class LoginActivity : AppCompatActivity() {
                 if (response.isSuccessful && response.body() != null) {
                     val apiResponse = response.body()!!
                     val token = apiResponse.data.token
+                    val nomeUsuario = apiResponse.data.usuario_nome
+
                     val editor = sharedPreferences.edit()
                     editor.putString("jwt_token", token)
+                    editor.putString("usuario_nome", nomeUsuario)
                     editor.apply()
+
                     val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                    intent.putExtra("nome", nomeUsuario)
                     startActivity(intent)
                     finish()
+
                 } else {
                     Toast.makeText(this@LoginActivity, "Usuário ou senha inválidos", Toast.LENGTH_LONG).show()
                 }
@@ -116,9 +122,10 @@ class LoginActivity : AppCompatActivity() {
     )
 
     data class LoginData(
-        val token: String
+        val token: String,
+        val usuario_nome: String
     )
+
 }
 
 
-// Teste

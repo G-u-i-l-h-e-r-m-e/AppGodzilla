@@ -2,6 +2,7 @@ package com.example.godzilla
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -10,14 +11,16 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.godzilla.network.ApiService
+import com.example.godzilla.network.Coleta
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import com.example.godzilla.network.Coleta
-
 
 class CertificadoColetaActivity : AppCompatActivity() {
 
@@ -30,14 +33,20 @@ class CertificadoColetaActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_certificado_coleta)
 
+
+        // === RecyclerView ===
         recyclerView = findViewById(R.id.recyclerViewCertificadoColetas)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val logging = HttpLoggingInterceptor { message ->
-            Log.d("OkHttp", message)
-        }.apply {
-            level = HttpLoggingInterceptor.Level.BODY
+        val btnVoltar = findViewById<ImageButton>(R.id.btnVoltar)
+
+        btnVoltar.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed() // Android moderno (API 33+)
         }
+
+        // === Retrofit (apenas para listar coletas) ===
+        val logging = HttpLoggingInterceptor { Log.d("OkHttp", it) }
+            .apply { level = HttpLoggingInterceptor.Level.BODY }
 
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(logging)
@@ -46,12 +55,10 @@ class CertificadoColetaActivity : AppCompatActivity() {
             .writeTimeout(30, TimeUnit.SECONDS)
             .build()
 
-        val gson = GsonBuilder()
-            .setLenient()
-            .create()
+        val gson = GsonBuilder().setLenient().create()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.135.111.23/")
+            .baseUrl("http://192.168.1.110/")          // IP do servidor XAMPP
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
@@ -60,40 +67,45 @@ class CertificadoColetaActivity : AppCompatActivity() {
 
         carregarColetas()
 
+        // Ajuste edge-to-edge (status/nav bar)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            val sb = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(sb.left, sb.top, sb.right, sb.bottom)
             insets
         }
     }
 
     private fun carregarColetas() {
         apiService.getHistoricoColetas().enqueue(object : Callback<List<Coleta>> {
-            override fun onResponse(
-                call: Call<List<Coleta>>,
-                response: Response<List<Coleta>>
-            ) {
+            override fun onResponse(call: Call<List<Coleta>>, response: Response<List<Coleta>>) {
                 if (response.isSuccessful) {
-                    val coletas = response.body() ?: emptyList()
+                    val coletas = response.body().orEmpty()
                     Log.d("API", "Coletas recebidas: ${coletas.size}")
 
-                    adapter = CertificadoColetaAdapter(coletas.toMutableList(), apiService) { coleta ->
-                        Toast.makeText(this@CertificadoColetaActivity, "Gerar certificado para ${coleta.nome_fantasia}", Toast.LENGTH_SHORT).show()
-                        // Aqui você pode abrir uma nova tela ou gerar PDF
-                    }
+                    // Adapter só precisa de contexto + lista
+                    adapter = CertificadoColetaAdapter(
+                        context = this@CertificadoColetaActivity,
+                        listaColetas = coletas.toMutableList()
+                    )
                     recyclerView.adapter = adapter
                 } else {
-                    Log.e("API Error", "Erro ${response.code()}")
-                    Toast.makeText(this@CertificadoColetaActivity, "Erro ao carregar dados", Toast.LENGTH_SHORT).show()
+                    Log.e("API", "Erro HTTP ${response.code()}")
+                    Toast.makeText(
+                        this@CertificadoColetaActivity,
+                        "Erro ao carregar dados",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
             override fun onFailure(call: Call<List<Coleta>>, t: Throwable) {
-                Log.e("API Failure", "Falha ao carregar coletas", t)
-                Toast.makeText(this@CertificadoColetaActivity, "Erro: ${t.message}", Toast.LENGTH_LONG).show()
+                Log.e("API", "Falha na requisição", t)
+                Toast.makeText(
+                    this@CertificadoColetaActivity,
+                    "Erro de rede: ${t.localizedMessage}",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         })
     }
-
-
 }

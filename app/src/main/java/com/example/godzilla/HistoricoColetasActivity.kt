@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -44,6 +45,13 @@ class HistoricoColetasActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_historico_coletas)
 
+        val btnVoltar = findViewById<ImageButton>(R.id.btnVoltar)
+
+        btnVoltar.setOnClickListener {
+            val intent = Intent(this@HistoricoColetasActivity, ColetasActivity::class.java)
+            startActivity(intent)
+        }
+
         recyclerView = findViewById(R.id.recyclerViewHistoricoColetas)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -72,7 +80,7 @@ class HistoricoColetasActivity : AppCompatActivity() {
             .create()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.135.111.26/")
+            .baseUrl("http://192.168.1.110/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()

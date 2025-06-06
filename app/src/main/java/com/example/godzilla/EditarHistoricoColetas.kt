@@ -1,10 +1,12 @@
 package com.example.godzilla
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -40,6 +42,13 @@ class EditarHistoricoColetas : AppCompatActivity() {
             insets
         }
 
+        val btnVoltar = findViewById<ImageButton>(R.id.btnVoltar)
+
+        btnVoltar.setOnClickListener {
+            val intent = Intent(this@EditarHistoricoColetas, HistoricoColetasActivity::class.java)
+            startActivity(intent)
+        }
+
         clienteIdEditText = findViewById(R.id.nome_fantasia)
         dataHoraEditText = findViewById(R.id.data_hora)
         qtdOleoLitrosEditText = findViewById(R.id.qtdOleoLitros)
@@ -54,7 +63,7 @@ class EditarHistoricoColetas : AppCompatActivity() {
 
         // Configuração do Retrofit
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.135.111.26/apis/routes/")
+            .baseUrl("http://192.168.1.110/apis/routes/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -72,7 +81,8 @@ class EditarHistoricoColetas : AppCompatActivity() {
                     if (response.isSuccessful) {
                         Toast.makeText(this@EditarHistoricoColetas, "Coleta atualizada com sucesso!", Toast.LENGTH_LONG).show()
                         setResult(Activity.RESULT_OK)
-                        finish()
+                        val intent = Intent(this@EditarHistoricoColetas, HistoricoColetasActivity::class.java)
+                        startActivity(intent)
                     } else {
                         val errorBody = response.errorBody()?.string()
                         Log.e("API_ERROR", "Código: ${response.code()} - Erro: $errorBody")

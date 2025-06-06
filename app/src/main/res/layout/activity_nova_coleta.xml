@@ -1,11 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B316401C"
     tools:context=".NovaColetaActivity">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <LinearLayout
+      android:id="@+id/linearLayout"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="188dp"
+      android:gravity="center_vertical"
+      android:orientation="vertical"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+
+  </LinearLayout>
+
+  <Button
+      android:id="@+id/btnSalvar"
+      android:layout_width="209dp"
+      android:layout_height="54dp"
+      android:background="@drawable/botao_marrom"
+      android:text="Salvar"
+      android:textColor="#FDFDFD"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+      app:layout_constraintVertical_bias="0.658" />
+
+
+  <ImageButton
+      android:id="@+id/btnVoltar"
+      android:layout_width="57dp"
+      android:layout_height="62dp"
+      android:layout_marginTop="60dp"
+      android:background="?attr/selectableItemBackgroundBorderless"
+      android:contentDescription="Voltar"
+      android:padding="8dp"
+      android:src="@drawable/baseline_arrow_circle_left_24"
+      app:layout_constraintEnd_toStartOf="@+id/imageView7"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <EditText
+      android:id="@+id/qtdOleoLitros"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="10dp"
+      android:layout_weight="1"
+      android:background="@drawable/botao_branco"
+      android:hint="Digite a quantidade de óleo"
+      android:textAlignment="center"
+      android:textColor="#16401C"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/data_hora" />
+
+  <EditText
+      android:id="@+id/data_hora"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+      android:layout_marginTop="144dp"
+      android:layout_marginEnd="10dp"
+      android:layout_weight="1"
+      android:background="@drawable/botao_branco"
+      android:hint="Data e Hora"
+      android:focusable="false"
+      android:clickable="true"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+  <Spinner
+      android:id="@+id/spinnerEmpresas"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp"
+      android:layout_marginBottom="16dp"
+      android:background="@drawable/botao_branco"
+      android:spinnerMode="dropdown"
+      android:textColor="#16401C"
+      app:layout_constraintBottom_toTopOf="@+id/data_hora"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <ImageView
+      android:id="@+id/imageView7"
+      android:layout_width="150dp"
+      android:layout_height="100dp"
+      app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/logo_verde_claro" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

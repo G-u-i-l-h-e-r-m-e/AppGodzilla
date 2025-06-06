@@ -8,6 +8,19 @@
     android:background="#B316401C"
     tools:context=".EditarHistoricoColetas">
 
+    <ImageButton
+        android:id="@+id/btnVoltar"
+        android:layout_width="57dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="60dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Voltar"
+        android:padding="8dp"
+        android:src="@drawable/baseline_arrow_circle_left_24"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"

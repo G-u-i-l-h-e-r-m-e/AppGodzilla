@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/btnAbrirSite"
         android:layout_width="154dp"
         android:layout_height="44dp"
         android:background="@drawable/botao_login"
@@ -149,7 +149,7 @@
         android:id="@+id/view2"
         android:layout_width="372dp"
         android:layout_height="477dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/back_home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -160,12 +160,12 @@
         android:id="@+id/imageView5"
         android:layout_width="373dp"
         android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="@+id/loginButton"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAbrirSite"
         app:layout_constraintEnd_toEndOf="@+id/view2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.146"
+        app:layout_constraintVertical_bias="0.089"
         app:srcCompat="@drawable/home_image_default" />
 
     <TextView
@@ -204,8 +204,8 @@
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
-    <ImageView
-        android:id="@+id/imageView6"
+    <ImageButton
+        android:id="@+id/btnLogout"
         android:layout_width="36dp"
         android:layout_height="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
